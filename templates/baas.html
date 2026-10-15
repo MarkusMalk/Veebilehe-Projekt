@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="static/css/kujundus.css">
+        {% block head %} <title> Temp Pealkiri</title> {% endblock %}
+    </head>
+    <body>
+        <div id="header">{% block header %}Pealkiri{% endblock %}</div>
+        <div id="content">{% block content %}{% endblock %}</div>
+    </body>
+</html>

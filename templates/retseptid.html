@@ -1,0 +1,13 @@
+{% extends 'baas.html' %}
+{% block header %}
+    <h1 class="bordered">Retseptid</h1>
+    <form action="{{ url_for('retseptid_tulemused') }}" method="GET">
+        Otsi: <input type="text" name="otsi" value="{{ otsi }}">
+        <input type="submit" value="Otsi" class="button">
+
+    </form>
+    <br>
+    <button type="button" class="collapsible">Filter</button>
+
+
+{% endblock %}

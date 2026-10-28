@@ -9,5 +9,30 @@
     <br>
     <button type="button" class="collapsible">Filter</button>
 
+    <div class="retseptide-grid">
+        {% for retsept in retseptid %}
+            <article class="retsepti-kaart">
+
+                <img class="retsepti-pilt" src="{{ url_for('static', filename='retseptid/' ~ retsept.pilt) }}" alt="{{ retsept.nimi }}">
+
+                <h2 class="retsepti-nimi">
+                    {{ retsept.nimi }}
+                </h2>
+
+                <div>
+                    <div class="dieedi-grid">
+                    {% if retsept.dieedid %}
+                        {% for dieet in retsept.dieedid %}
+                            <span class="dieedi-silt">{{ dieet.nimi }}</span>
+                        {% endfor %}
+                    {% endif %}
+                    </div>
+                </div>
+
+            </article>
+        {% else %}
+            <p>Andmebaasis pole veel retsepte.</p>
+        {% endfor %}
+    </div>
 
 {% endblock %}

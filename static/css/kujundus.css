@@ -56,18 +56,12 @@ h1, p {
   text-decoration: none;
   cursor: pointer;
 
-  box-shadow:
-      0 3px 0 grey,
-      0 0 10px rgba(178, 38, 47, 0.4);
   transition: 0.15s ease-in-out;
 }
 
 .btn:hover {
   background: linear-gradient(180deg, white, whitesmoke);
   transform: translateY(-2px) scale(1.05);
-  box-shadow:
-      0 4px 0 lightgrey,
-      0 0 16px rgba(210, 48, 57, 0.7);
 }
 
 .btn:active {
@@ -78,4 +72,64 @@ h1, p {
 
 .btn + .btn {
   margin-left: 10px;
+}
+
+.retseptide-grid {
+    columns: 2;
+    column-gap: 20px;
+}
+
+.retsepti-kaart {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    break-inside: avoid;
+    margin-bottom: 20px;
+    border: 3px solid black;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+}
+
+.retsepti-pilt {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+
+    object-fit: contain;
+    border: none;
+}
+
+.retsepti-nimi {
+    margin: 0;
+    padding: 12px 8px;
+
+    text-align: center;
+    font-size: 24px;
+
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+.dieetide-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    background: white;
+}
+
+.dieedi-silt {
+    display: inline-block;
+    background-color: #e0f2e9;
+    padding: 6px 10px;
+    border-radius: 15px;
+    font-size: 14px;
 }

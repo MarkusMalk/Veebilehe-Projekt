@@ -63,11 +63,7 @@ class Retsepti_koostisosad(db.Model):
 
 
 with app.app_context():
-    Dieedid.query.filter_by(nimi="vagan").update(
-        {"nimi": "vegan"}
-    )
 
-    db.session.commit()
     db.create_all()
 
 #----------------------Veebisaidid------------------
@@ -75,7 +71,7 @@ with app.app_context():
 #Avaleht
 @app.route('/')
 def index() :
-    return render_template('avaleht.html')
+    return render_template('index.py')
 
 #Otsi retsepte leht
 @app.route('/retseptid')

@@ -22,7 +22,7 @@ print("""
 <head>
     <meta charset="UTF-8">
     <title>Retseptid</title>
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="/~markusmalk/static/css/style.css">
 </head>
 """)
 
@@ -45,7 +45,7 @@ print(f"""
 <body>
 <h1 class="bordered">Retseptid</h1>
 
-<form action="./retseptid.py" method="GET">
+<form action="/~markusmalk/cgi-bin/retseptid.py" method="GET">
     Otsi:
     <input type="text" name="otsi" value="{html.escape(otsi)}">
     <input type="submit" value="Otsi" class="button">
@@ -64,7 +64,7 @@ for retsept in retseptid:
     print(f"""
     <article class="retsepti-kaart">
         <img class="retsepti-pilt"
-             src="../static/retseptid/{pilt}"
+             src="/~markusmalk/static/retseptid/{pilt}"
              alt="{nimi}">
 
         <h2 class="retsepti-nimi">{nimi}</h2>

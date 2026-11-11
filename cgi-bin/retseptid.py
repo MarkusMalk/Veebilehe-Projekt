@@ -10,7 +10,7 @@ if os.name == "nt":
     SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
     DB_PATH = os.path.join(SCRIPT_DIR, "..", "instance", "retseptid.db")
 else:
-    DB_PATH = os.path.expanduser("~/andmed/retseptid.db")
+    DB_PATH = os.path.expanduser("~/public_html/instance/retseptid.db")
 
 print("Content-Type: text/html; charset=utf-8")
 print()
@@ -29,16 +29,20 @@ print("""
 params = parse_qs(os.environ.get("QUERY_STRING", ""))
 otsi = params.get("otsi", [""])[0]
 
-conn = sqlite3.connect(DB_PATH)
-conn.row_factory = sqlite3.Row
+try:
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
 
-retseptid = conn.execute("""
-    SELECT id, nimi, pilt
-    FROM retseptid
-    WHERE nimi LIKE ?
-    ORDER BY nimi
-""", (f"%{otsi}%",)).fetchall()
+    retseptid = conn.execute("""
+        SELECT id, nimi, pilt
+        FROM retseptid
+        WHERE nimi LIKE ?
+        ORDER BY nimi
+    """, (f"%{otsi}%",)).fetchall()
 
+except Exception as e:
+    print(f"<pre>VIGA: {html.escape(str(e))}</pre>")
+    raise
 
 
 print(f"""
@@ -60,6 +64,7 @@ print(f"""
 for retsept in retseptid:
     nimi = html.escape(retsept["nimi"])
     pilt = html.escape(retsept["pilt"])
+    dieet = html.escape(retsept["dieedid"])
 
     print(f"""
     <article class="retsepti-kaart">
@@ -68,14 +73,13 @@ for retsept in retseptid:
              alt="{nimi}">
 
         <h2 class="retsepti-nimi">{nimi}</h2>
-        <div class="dieedi-grid"></div>
+        <div class="dieedi-grid">{dieet}</div>
     </article>
     """)
 
 if not retseptid:
     print("<p>Andmebaasis pole veel retsepte.</p>")
 
-print("</div>")
 print("""
 </div>
 </body>

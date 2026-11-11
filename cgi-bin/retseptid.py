@@ -6,8 +6,11 @@ from urllib.parse import parse_qs
 import os
 
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(SCRIPT_DIR, "..", "instance", "retseptid.db")
+if os.name == "nt":
+    SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+    DB_PATH = os.path.join(SCRIPT_DIR, "..", "instance", "retseptid.db")
+else:
+    DB_PATH = os.path.expanduser("~/andmed/retseptid.db")
 
 print("Content-Type: text/html; charset=utf-8")
 print()

@@ -6,7 +6,8 @@ from urllib.parse import parse_qs
 import os
 
 
-DB_PATH = "/home/markusmalk/andmebaas/retseptid.db"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_PATH = os.path.join(SCRIPT_DIR, "..", "instance", "retseptid.db")
 
 print("Content-Type: text/html; charset=utf-8")
 print()
@@ -18,7 +19,7 @@ print("""
 <head>
     <meta charset="UTF-8">
     <title>Retseptid</title>
-    <link rel="stylesheet" href="/~markusmalk/Veebilehe-Projekt/static/css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 """)
 
@@ -31,16 +32,17 @@ conn.row_factory = sqlite3.Row
 retseptid = conn.execute("""
     SELECT id, nimi, pilt
     FROM retseptid
-    WHERE nimi LIKE
+    WHERE nimi LIKE ?
     ORDER BY nimi
 """, (f"%{otsi}%",)).fetchall()
 
 
 
 print(f"""
+<body>
 <h1 class="bordered">Retseptid</h1>
 
-<form action="/~markusmalk/cgi-bin/retseptid.py" method="GET">
+<form action="./retseptid.py" method="GET">
     Otsi:
     <input type="text" name="otsi" value="{html.escape(otsi)}">
     <input type="submit" value="Otsi" class="button">
@@ -59,7 +61,7 @@ for retsept in retseptid:
     print(f"""
     <article class="retsepti-kaart">
         <img class="retsepti-pilt"
-             src="/~markusmalk/Veebilehe-Projekt/static/retseptid/{pilt}"
+             src="../static/retseptid/{pilt}"
              alt="{nimi}">
 
         <h2 class="retsepti-nimi">{nimi}</h2>
@@ -71,7 +73,6 @@ if not retseptid:
     print("<p>Andmebaasis pole veel retsepte.</p>")
 
 print("</div>")
-
 print("""
 </div>
 </body>

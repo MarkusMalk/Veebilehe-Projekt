@@ -5,30 +5,37 @@ import html
 from urllib.parse import parse_qs
 import os
 
-from abi import lehe_algus, lehe_lopp
 
 DB_PATH = "/home/markusmalk/andmebaas/retseptid.db"
 
 print("Content-Type: text/html; charset=utf-8")
 print()
 
-# Loeme otsingusõna
+print("""
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Retseptid</title>
+    <link rel="stylesheet" href="/~markusmalk/Veebilehe-Projekt/static/css/style.css">
+</head>
+""")
+
 params = parse_qs(os.environ.get("QUERY_STRING", ""))
 otsi = params.get("otsi", [""])[0]
 
-# Ühendame andmebaasiga
 conn = sqlite3.connect(DB_PATH)
 conn.row_factory = sqlite3.Row
 
-# Küsime retseptid andmebaasist
 retseptid = conn.execute("""
     SELECT id, nimi, pilt
     FROM retseptid
-    WHERE nimi LIKE ?
+    WHERE nimi LIKE
     ORDER BY nimi
 """, (f"%{otsi}%",)).fetchall()
 
-lehe_algus()
+
 
 print(f"""
 <h1 class="bordered">Retseptid</h1>
@@ -65,5 +72,9 @@ if not retseptid:
 
 print("</div>")
 
-lehe_lopp()
+print("""
+</div>
+</body>
+</html>
+""")
 conn.close()

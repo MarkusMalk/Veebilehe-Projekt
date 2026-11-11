@@ -1,0 +1,69 @@
+#!/home/markusmalk/.venv/bin/python3
+
+import sqlite3
+import html
+from urllib.parse import parse_qs
+import os
+
+from abi import lehe_algus, lehe_lopp
+
+DB_PATH = "/home/markusmalk/andmebaas/retseptid.db"
+
+print("Content-Type: text/html; charset=utf-8")
+print()
+
+# Loeme otsingusõna
+params = parse_qs(os.environ.get("QUERY_STRING", ""))
+otsi = params.get("otsi", [""])[0]
+
+# Ühendame andmebaasiga
+conn = sqlite3.connect(DB_PATH)
+conn.row_factory = sqlite3.Row
+
+# Küsime retseptid andmebaasist
+retseptid = conn.execute("""
+    SELECT id, nimi, pilt
+    FROM retseptid
+    WHERE nimi LIKE ?
+    ORDER BY nimi
+""", (f"%{otsi}%",)).fetchall()
+
+lehe_algus()
+
+print(f"""
+<h1 class="bordered">Retseptid</h1>
+
+<form action="/~markusmalk/cgi-bin/retseptid.py" method="GET">
+    Otsi:
+    <input type="text" name="otsi" value="{html.escape(otsi)}">
+    <input type="submit" value="Otsi" class="button">
+</form>
+
+<br>
+<button type="button" class="collapsible">Filter</button>
+
+<div class="retseptide-grid">
+""")
+
+for retsept in retseptid:
+    nimi = html.escape(retsept["nimi"])
+    pilt = html.escape(retsept["pilt"])
+
+    print(f"""
+    <article class="retsepti-kaart">
+        <img class="retsepti-pilt"
+             src="/~markusmalk/Veebilehe-Projekt/static/retseptid/{pilt}"
+             alt="{nimi}">
+
+        <h2 class="retsepti-nimi">{nimi}</h2>
+        <div class="dieedi-grid"></div>
+    </article>
+    """)
+
+if not retseptid:
+    print("<p>Andmebaasis pole veel retsepte.</p>")
+
+print("</div>")
+
+lehe_lopp()
+conn.close()

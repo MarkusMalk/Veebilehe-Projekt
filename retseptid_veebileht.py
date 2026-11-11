@@ -81,7 +81,7 @@ def index() :
 @app.route('/retseptid')
 def retseptid() :
     retseptid = Retseptid.query.all()
-    return render_template('retseptid.html', retseptid=retseptid)
+    return render_template('cgi-bin/retseptid.py', retseptid=retseptid)
 
 #Retseptide otsingu tulemus
 @app.route('/retseptid_tulemused', methods=['GET', 'POST'])

@@ -10,7 +10,7 @@ print("""
 <head>
     <meta charset="UTF-8">
     <title>Retseptid</title>
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="/~markusmalk/Veebilehe-Projekt/static/css/style.css">
 
     <style>
         body {
@@ -38,8 +38,8 @@ print("""
         <tbody>
             <tr>
                 <td>
-                    <a href="retseptid_veebileht.py">
-                        <img src="../static/avaleht_retseptid.jpg"
+                    <a href="/~markusmalk/cgi-bin/retseptid.py">
+                        <img src="/~markusmalk/Veebilehe-Projekt/static/avaleht_retseptid.jpg"
                              style="width:500px; height:500px;"
                              alt="Otsi retsepte">
                     </a>

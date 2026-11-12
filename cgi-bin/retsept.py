@@ -1,41 +1,45 @@
 #!/usr/bin/env python3
-print('Content-Type: text/html; charset=utf-8\n')
+print("Content-Type: text/html; charset=utf-8\n")
 
-print('''
+print("""
 <!DOCTYPE html>
 <html lang="et">
 <head>
-    <meta charset="utf-8">
-    <title>Retsept ....</title>
-    <link rel='stylesheet' href='../static/css/style.css>
+    <meta charset="UTF-8">
+    <title>Retsept</title>
 </head>
 <body>
-      <main class='retsepti-konteiner'>
-        <h1 class='retsepti-pealkiri'>Retsepti nimi</h1>
+
+    <h1>Pannkoogid</h1>
+    <div><img src="../static/pannkoogid.jpg" alt="Pannkoogid" width="300"></div>
+    <div>
+        <h2>Koostisosad</h2>
         
-        <div class='retsepti-sisu'>
-            <div class='vasak-veerg'>
-                <div class='kast'>
-                    <h2>Koostiosad</h2>
-                    <p>Siia tulevad koostisosad...</p>
-                </div>
-                <div class='kast'>
-                    <h3>QR kood</h3>
-                </div>
-            </div>
-        
-            <div class='parem-veerg'>
-                <div class='kast'>
-                    <h2>Juhend</h2>
-                    <p>Siia tuleb valmistamisjuhend...</p>
-                </div>
-                <div class='kast'>
-                    <h3>Dieedid</h3>
-                    <p>Siia tulevad dieedisildid...</p>
-                </div>
-            </div>
-        </div>
-    </main>
+        <ul>
+            <li>Jahu</li>
+            <li>Piim</li>
+            <li>Munad</li>
+            <li>Suhkur, sool</li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>QR kood</h2>
+        <p>[QR koodi pilt]</p>
+    </div>
+
+    <div>
+        <h2>Juhend</h2>
+        <p>1. Klopi munad ja piim kokku.<br>
+           2. Lisa jahu ja maitseained.<br>
+           3. Prae pannil kuldpruuniks.</p>
+    </div>
+
+    <div>
+        <h2>Dieedid</h2>
+        <p>Taimetoit</p>
+    </div>
+
 </body>
 </html>
-''')
+""")

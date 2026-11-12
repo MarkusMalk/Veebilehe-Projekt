@@ -11,22 +11,11 @@ print("""
     <meta charset="UTF-8">
     <title>Retseptid</title>
     <link rel="stylesheet" href="../static/css/style.css">
-
-    <style>
-        body {
-            text-align: center;
-        }
-
-        table {
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
 </head>
 
 <body>
 
-    <h1 class="bordered">Temp Pealkiri</h1>
+    <h1 class="bordered">Retseptide leht</h1>
 
     <table border="2" class="centered">
         <thead>

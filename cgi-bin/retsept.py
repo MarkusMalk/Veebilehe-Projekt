@@ -37,7 +37,7 @@ print("""
 
     <div>
         <h2>Dieedid</h2>
-        <p>Taimetoit</p>
+        
     </div>
 
 </body>

@@ -64,7 +64,6 @@ print(f"""
 for retsept in retseptid:
     nimi = html.escape(retsept["nimi"])
     pilt = html.escape(retsept["pilt"])
-    dieedid = html.escape(retsept["dieedid"])
 
     print(f"""
     <article class="retsepti-kaart">
@@ -73,7 +72,7 @@ for retsept in retseptid:
              alt="{nimi}">
 
         <h2 class="retsepti-nimi">{nimi}</h2>
-        <div class="dieedi-grid">{dieedid}</div>
+        <div class="dieedi-grid"></div>
     </article>
     """)
 

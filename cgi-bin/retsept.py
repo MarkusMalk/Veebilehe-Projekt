@@ -7,9 +7,10 @@ print("""
 <head>
     <meta charset="UTF-8">
     <title>Retsept</title>
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-
+    
     <h1>Pannkoogid</h1>
     <div><img src="../static/pannkoogid.jpg" alt="Pannkoogid" width="300"></div>
     <div>

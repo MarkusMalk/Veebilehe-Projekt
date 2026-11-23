@@ -74,8 +74,8 @@ print("""
 <head>
     <meta charset="UTF-8">
     <title>Retseptid</title>
-    <link rel="stylesheet" href="../static/css/style.css">
-    <script src="../static/js/script.js" defer></script>
+    <link rel="stylesheet" href="/~markusmalk/static/css/style.css">
+    <script src="/~markusmalk/static/js/script.js" defer></script>
 </head>
 
 
@@ -84,7 +84,7 @@ print("""
 """)
 
 print(f"""
-<form action="./retseptid.py" method="GET">
+<form action="/~markusmalk/cgi-bin/retseptid.py" method="GET">
 
     Otsi:
     <input type="text" name="otsi" value="{html.escape(otsi)}">
@@ -126,9 +126,9 @@ for retsept in retseptid:
 
     print(f"""
     <article class="retsepti-kaart">
-        <a href="./retsept.py?id={retsepti_id}">
+        <a href="/~markusmalk/cgi-bin/retsept.py?id={retsepti_id}">
             <img class="retsepti-pilt"
-                 src="../static/retseptid/{pilt}"
+                 src="/~markusmalk/static/retseptid/{pilt}"
                  alt="{nimi}">
         </a>
 

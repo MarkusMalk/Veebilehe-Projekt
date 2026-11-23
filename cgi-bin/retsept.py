@@ -43,7 +43,7 @@ print(f"""
 <body>
 
     <h1>{nimi}</h1>
-    <div><img src="../static/retseptid/pannkook.jpeg" alt="Pannkoogid" width="300"></div>
+    <div><img src="/~markusmalk/static/retseptid/pannkook.jpeg" alt="Pannkoogid" width="300"></div>
     <div>
         <h2>Koostisosad</h2>
         

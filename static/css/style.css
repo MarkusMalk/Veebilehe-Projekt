@@ -31,6 +31,16 @@ h1, p {
   font-size: 15px;
 }
 
+.content {
+    display: none;
+    padding: 10px;
+}
+
+.content label {
+    display: block;
+    margin: 5px 0;
+}
+
 .active, .collapsible:hover {
   background-color: #ccc;
 }

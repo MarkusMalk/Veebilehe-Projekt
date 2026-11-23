@@ -1,7 +1,39 @@
 #!/usr/bin/env python3
+import sqlite3
+import html
+from urllib.parse import parse_qs
+import os
+
+
+if os.name == "nt":
+    SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+    DB_PATH = os.path.join(SCRIPT_DIR, "..", "instance", "retseptid.db")
+else:
+    DB_PATH = os.path.expanduser("~/public_html/instance/retseptid.db")
+
+
+params = parse_qs(os.environ.get("QUERY_STRING", ""))
+retsepti_id = params.get("id", [""])[0] #Retsepti ID, mida kasutaja valis. Sellega saab retsepti infot kuvada
+
+try:
+    conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
+
+    retsept = conn.execute("""
+    SELECT nimi
+    FROM retseptid
+    WHERE id = ?
+""", (retsepti_id,)).fetchone()
+
+except Exception as e:
+    print(f"<pre>VIGA: {html.escape(str(e))}</pre>")
+    raise
+
 print("Content-Type: text/html; charset=utf-8\n")
 
-print("""
+nimi = html.escape(retsept["nimi"])
+
+print(f"""
 <!DOCTYPE html>
 <html lang="et">
 <head>
@@ -10,8 +42,8 @@ print("""
 </head>
 <body>
 
-    <h1>Pannkoogid</h1>
-    <div><img src="../static/pannkoogid.jpg" alt="Pannkoogid" width="300"></div>
+    <h1>{nimi}</h1>
+    <div><img src="../static/retseptid/pannkook.jpeg" alt="Pannkoogid" width="300"></div>
     <div>
         <h2>Koostisosad</h2>
         

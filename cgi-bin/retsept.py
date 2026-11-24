@@ -11,8 +11,8 @@ print("""
 </head>
 <body>
     
-    <h1>Pannkoogid</h1>
-    <div><img src="../static/pannkoogid.jpg" alt="Pannkoogid" width="300"></div>
+    <h1 class="bordered">Pannkoogid</h1>
+    <div><img src="../static/pannkoogid.jpg" alt="Pannkoogid" class="retsepti-pilt"></div>
     <div>
         <h2>Koostisosad</h2>
         

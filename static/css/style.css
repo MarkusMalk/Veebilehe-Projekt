@@ -1,17 +1,23 @@
 body {
-    padding: 44px 24px;
-    background-color: #faf7f2;
-    color: #2f2a26;
+    padding: 48px 24px;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(212, 168, 92, 0.22), transparent 42%),
+        radial-gradient(circle at 85% 18%, rgba(168, 86, 118, 0.20), transparent 45%),
+        linear-gradient(160deg, #161114 0%, #231820 52%, #141013 100%);
+    min-height: 100vh;
+    margin: 0;
+    color: #f6efe6;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: 16px;
     line-height: 1.7;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.015em;
+    box-sizing: border-box;
 }
 
 h1, h2, .retsepti-nimi {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: Georgia, "Palatino Linotype", "Times New Roman", serif;
     font-weight: normal;
-    color: #26211d;
+    color: #fff6e5;
 }
 
 h1, p {
@@ -20,14 +26,17 @@ h1, p {
 
 .bordered {
     display: table;
-    border: 1px solid #d5cbbd;
+    border: 1px solid rgba(232, 194, 122, 0.65);
     border-radius: 999px;
-    background-color: #fffdfa;
-    padding: 10px 28px;
-    margin: 0 auto 28px auto;
-    font-size: 32px;
-    letter-spacing: 0.03em;
-    box-shadow: 0 6px 20px rgba(47, 42, 38, 0.04);
+    background: linear-gradient(135deg, rgba(232, 194, 122, 0.16), rgba(182, 92, 126, 0.14));
+    padding: 12px 34px;
+    margin: 0 auto 32px auto;
+    font-size: 36px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35),
+        inset 0 0 18px rgba(232, 194, 122, 0.15);
 }
 
 .centered {
@@ -36,61 +45,62 @@ h1, p {
 }
 
 .collapsible {
-    background-color: #fffdfa;
-    color: #2f2a26;
+    background: linear-gradient(135deg, rgba(255, 246, 229, 0.09), rgba(232, 194, 122, 0.05));
+    color: #fff6e5;
     font-family: inherit;
     cursor: pointer;
-    padding: 12px 18px;
+    padding: 13px 18px;
     width: 100%;
-    border: 1px solid #dfd6c9;
-    border-radius: 12px;
+    border: 1px solid rgba(232, 194, 122, 0.4);
+    border-radius: 14px;
     text-align: left;
     outline: none;
     font-size: 15px;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    transition: all 0.25s ease;
 }
 
 .active, .collapsible:hover {
-    background-color: #f3ede3;
-    border-color: #c8bcab;
+    background: linear-gradient(135deg, rgba(232, 194, 122, 0.22), rgba(182, 92, 126, 0.18));
+    border-color: rgba(242, 210, 148, 0.8);
 }
 
 .content {
     padding: 0 20px;
     display: none;
     overflow: hidden;
-    background-color: #fffdfa;
-    border-left: 1px solid #dfd6c9;
-    border-right: 1px solid #dfd6c9;
-    border-bottom: 1px solid #dfd6c9;
-    border-radius: 0 0 12px 12px;
+    background-color: rgba(34, 24, 31, 0.85);
+    border-left: 1px solid rgba(232, 194, 122, 0.3);
+    border-right: 1px solid rgba(232, 194, 122, 0.3);
+    border-bottom: 1px solid rgba(232, 194, 122, 0.3);
+    border-radius: 0 0 14px 14px;
 }
 
 .btn {
     display: inline-block;
-    padding: 9px 20px;
-    background-color: #fffdfa;
-    color: #2f2a26;
+    padding: 10px 22px;
+    background: linear-gradient(135deg, #e7c27d 0%, #c8964e 100%);
+    color: #1c1317;
     font-family: inherit;
-    border: 1px solid #cfc4b4;
+    border: 1px solid rgba(255, 236, 194, 0.7);
     border-radius: 999px;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.03em;
     text-decoration: none;
     cursor: pointer;
-    box-shadow: 0 3px 10px rgba(47, 42, 38, 0.04);
-    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 22px rgba(214, 164, 84, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 .btn:hover {
-    background-color: #f4eee4;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(47, 42, 38, 0.07);
+    filter: brightness(1.07);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(214, 164, 84, 0.42);
 }
 
 .btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(47, 42, 38, 0.05);
+    transform: translateY(1px);
+    box-shadow: 0 4px 12px rgba(214, 164, 84, 0.25);
 }
 
 .btn + .btn {
@@ -98,18 +108,24 @@ h1, p {
 }
 
 .retsepti-leht {
-    max-width: 880px;
+    max-width: 920px;
     margin: 0 auto;
 }
 
 .retsepti-pais {
-    max-width: 480px;
-    margin: 0 auto 36px auto;
+    max-width: 540px;
+    margin: 0 auto 38px auto;
+    padding: 10px;
+    border-radius: 22px;
+    background: linear-gradient(145deg, rgba(232, 194, 122, 0.38), rgba(186, 94, 130, 0.22));
+    border: 1px solid rgba(232, 194, 122, 0.55);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45),
+        0 0 35px rgba(212, 168, 92, 0.14);
+}
+
+.retsepti-pais .retsepti-pilt {
     border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid #e2d9cc;
-    background-color: #fffdfa;
-    box-shadow: 0 10px 28px rgba(47, 42, 38, 0.06);
 }
 
 .retsepti-plokid {
@@ -119,33 +135,52 @@ h1, p {
     align-items: start;
 }
 
+.retsepti-plokid--kolm {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .retsepti-kast {
-    background-color: #fffdfa;
-    border: 1px solid #e2d9cc;
-    border-radius: 14px;
+    background: linear-gradient(165deg, rgba(43, 30, 39, 0.92), rgba(26, 19, 25, 0.95));
+    border: 1px solid rgba(232, 194, 122, 0.35);
+    border-radius: 18px;
     padding: 24px 26px;
     box-sizing: border-box;
-    box-shadow: 0 8px 24px rgba(47, 42, 38, 0.04);
+    box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 246, 229, 0.12);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.retsepti-kast:hover {
+    transform: translateY(-3px);
+    border-color: rgba(238, 204, 138, 0.65);
 }
 
 .retsepti-kast h2 {
     margin-top: 0;
     margin-bottom: 14px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #ece4d8;
+    border-bottom: 1px solid rgba(232, 194, 122, 0.28);
     font-size: 21px;
+    letter-spacing: 0.03em;
 }
 
 .retsepti-kast ul {
     margin: 0;
     padding-left: 20px;
-    line-height: 1.75;
+    line-height: 1.8;
+    color: #f3e9dc;
+}
+
+.retsepti-kast li::marker {
+    color: #e5be76;
 }
 
 .juhendi-tekst {
     text-align: left;
-    line-height: 1.75;
+    line-height: 1.8;
     margin: 0;
+    color: #f3e9dc;
 }
 
 .retseptide-grid {
@@ -159,11 +194,11 @@ h1, p {
     align-items: stretch;
     break-inside: avoid;
     margin-bottom: 24px;
-    border: 1px solid #e2d9cc;
-    border-radius: 14px;
+    border: 1px solid rgba(232, 194, 122, 0.38);
+    border-radius: 18px;
     overflow: hidden;
-    background: #fffdfa;
-    box-shadow: 0 8px 24px rgba(47, 42, 38, 0.05);
+    background: rgba(34, 24, 31, 0.92);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
 }
 
 .retsepti-pilt {
@@ -180,8 +215,8 @@ h1, p {
     padding: 14px 12px;
     text-align: center;
     font-size: 22px;
-    border-top: 1px solid #ece4d8;
-    border-bottom: 1px solid #ece4d8;
+    border-top: 1px solid rgba(232, 194, 122, 0.25);
+    border-bottom: 1px solid rgba(232, 194, 122, 0.25);
 }
 
 .dieetide-grid {
@@ -191,39 +226,37 @@ h1, p {
     align-items: center;
     gap: 8px;
     width: 100%;
-    padding: 14px;
+    padding: 8px 4px;
     box-sizing: border-box;
-    background: #fffdfa;
+    background: transparent;
 }
 
 .dieedi-silt {
     display: inline-block;
-    background-color: #eef4ef;
-    color: #354d3c;
-    border: 1px solid #cfe0d3;
-    padding: 5px 14px;
+    background: linear-gradient(135deg, rgba(232, 194, 122, 0.22), rgba(186, 94, 130, 0.24));
+    color: #fff3dc;
+    border: 1px solid rgba(232, 194, 122, 0.55);
+    padding: 6px 15px;
     border-radius: 999px;
     font-size: 13px;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .avaleht-kast {
-    background-color: #fffdfa;
-    border: 1px solid #e2d9cc;
+    background: rgba(34, 24, 31, 0.92);
+    border: 1px solid rgba(232, 194, 122, 0.4);
     padding: 36px 32px;
-    border-radius: 16px;
+    border-radius: 18px;
     max-width: 600px;
     margin: 50px auto;
     text-align: center;
-    box-shadow: 0 10px 28px rgba(47, 42, 38, 0.05);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
 }
 
-@media (max-width: 700px) {
-    body {
-        padding: 28px 16px;
-    }
-
-    .retsepti-plokid {
+@media (max-width: 820px) {
+    .retsepti-plokid,
+    .retsepti-plokid--kolm {
         grid-template-columns: 1fr;
     }
 

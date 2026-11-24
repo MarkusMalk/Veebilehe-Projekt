@@ -17,7 +17,7 @@ print("""
             <img src="../static/pannkoogid.jpg" alt="Pannkoogid" class="retsepti-pilt">
         </div>
 
-        <div class="retsepti-plokid">
+        <div class="retsepti-plokid retsepti-plokid--kolm">
             <section class="retsepti-kast">
                 <h2>Koostisosad</h2>
                 <ul>
@@ -29,13 +29,6 @@ print("""
             </section>
 
             <section class="retsepti-kast">
-                <h2>Dieedid</h2>
-                <div class="dieetide-grid">
-                    <span class="dieedi-silt">Taimetoit</span>
-                </div>
-            </section>
-
-            <section class="retsepti-kast">
                 <h2>Juhend</h2>
                 <p class="juhendi-tekst">1. Klopi munad ja piim kokku.<br>
                    2. Lisa jahu ja maitseained.<br>
@@ -43,8 +36,10 @@ print("""
             </section>
 
             <section class="retsepti-kast">
-                <h2>QR kood</h2>
-                <p>[QR koodi pilt]</p>
+                <h2>Dieedid</h2>
+                <div class="dieetide-grid">
+                    <span class="dieedi-silt">Taimetoit</span>
+                </div>
             </section>
         </div>
     </main>
